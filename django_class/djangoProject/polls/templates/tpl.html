@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>模板语法</h1>
+
+    <h2>变量取值</h2>
+    <p>n1:{{ n1 }}</p>
+    <p>n2:{{ n2.1 }}</p>
+
+    <h2>if但分支语句</h2>
+    {% if n3.age > 18 %}
+        <p>n3:{{ n3.name }}</p>
+    {% endif %}
+
+    <h2>for循环</h2>
+    {% for i in n2 %}
+        <p>{{ i }}</p>
+    {% endfor %}
+
+
+
+</body>
+</html>

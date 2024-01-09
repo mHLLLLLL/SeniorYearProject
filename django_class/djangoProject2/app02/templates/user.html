@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+{% block content %}
+     <div class="container">
+        <div>
+            <a class="btn btn-primary" href="/user/add" >
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                添加用户</a>
+        </div>
+        <div>
+            <div class="bs-example" data-example-id="panel-without-body-with-table">
+            <div class="panel panel-default">
+              <!-- Default panel contents -->
+              <div class="panel-heading">用户列表</div>
+
+              <!-- Table -->
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>姓名</th>
+                    <th>密码</th>
+                    <th>年龄</th>
+                    <th>账户余额</th>
+                    <th>入职时间</th>
+                    <th>性别</th>
+                    <th>部门</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for obj in users %}
+                    <tr>
+                    <th scope="row">{{ obj.id }}</th>
+                    <td>{{ obj.name }}</td>
+                     <td>{{ obj.password }}</td>
+                     <td>{{ obj.age }}</td>
+                     <td>{{ obj.account }}</td>
+                     <td>{{ obj.enroll|date:"Y-m-d"}}</td>
+                     <td>{{ obj.get_gender_display }}</td>
+                      <td>{{ obj.depart.title }}</td>
+                    <td>
+                        <a href="/user/{{ obj.id }}/edit/" class="btn btn-primary btn-xs">编辑</a>
+                        <a href="/user/delete/?nid={{ obj.id }}" class="btn btn-danger btn-xs">删除</a>
+                    </td>
+                  </tr>
+                {% endfor %}
+
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+    </div>
+{% endblock %}

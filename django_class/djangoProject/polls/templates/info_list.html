@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>INFO</title>
+</head>
+<body>
+
+<table border="1">
+<thead>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>PASSWD</th>
+            <th>AGE</th>
+            <th>操作</th>
+        </tr>
+</thead>
+
+<tbody>
+    <tr>
+        {% for obj in data_list %}
+        <th>{{obj.id}}</th>
+        <th>{{obj.username}}</th>
+        <th>{{obj.password}}</th>
+        <th>{{obj.age}}</th>
+        <th>
+            <a href="/info_delete/?nid={{obj.id}}">删除</a>
+        </th>
+    </tr>
+    {% endfor %}
+
+<a href="/info_add/">编辑</a>
+</tbody>
+</table>
+</body>
+</html>

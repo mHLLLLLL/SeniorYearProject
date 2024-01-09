@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="file">
+        <label for="model_name">选择模型
+            <select name="model_name">
+                {% for model in weight_list %}
+                    <option value="{{ model.id }}">{{ model.name }}</option>
+                {% endfor %}
+              </select>
+        </label>
+        <input type="submit" value="上传">
+        {# 如果flag为1，显示下载按钮#}
+            {% if flag == 1 %}
+                <input type="submit" value="下载">
+            {% endif %}
+
+
+    <span style="color: red;">{{ error }}</span>
+
+</body>
+</html>
